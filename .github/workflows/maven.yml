@@ -55,7 +55,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: /public/extent-reports
-        token: ${{ PAT_TOKEN }}
+        token: ${{ secrets.PAT_TOKEN }}
         clean: true
 
 

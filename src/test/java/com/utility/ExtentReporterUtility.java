@@ -11,7 +11,7 @@ public class ExtentReporterUtility {
 	
 	public static void setupExtentReport(String filename)
 	{
-		ExtentSparkReporter extentsparkreport = new ExtentSparkReporter(System.getProperty("user.dir") + filename);
+		ExtentSparkReporter extentsparkreport = new ExtentSparkReporter(filename);
 		extentReports = new ExtentReports();
 		extentReports.attachReporter(extentsparkreport);
 	}

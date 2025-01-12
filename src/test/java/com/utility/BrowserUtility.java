@@ -20,7 +20,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import  com.constants.Browser;
 
-public abstract class BrowserUtility {
+public class BrowserUtility {
 	
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 	
@@ -131,7 +131,7 @@ public abstract class BrowserUtility {
 	
 	public String takeScreenShot(String name)
 	{
-		TakesScreenshot screenshot = (TakesScreenshot) driver;
+		TakesScreenshot screenshot = (TakesScreenshot) driver.get();
 		File screenshotData = screenshot.getScreenshotAs(OutputType.FILE);
 		Date date = new Date();
 		SimpleDateFormat dateformat = new SimpleDateFormat("HH:mm:ss");

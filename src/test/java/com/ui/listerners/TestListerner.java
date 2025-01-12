@@ -8,6 +8,8 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.aventstack.extentreports.Status;
+import com.ui.tests.TestBase;
+import com.utility.BrowserUtility;
 import com.utility.ExtentReporterUtility;
 import com.utility.LoggerUtility;
 
@@ -35,6 +37,14 @@ public class TestListerner implements ITestListener{
 		logger.error(result.getThrowable().getMessage());
 		ExtentReporterUtility.getTest().log(Status.FAIL,result.getMethod().getMethodName() + "  FAILED");
 		ExtentReporterUtility.getTest().log(Status.FAIL,result.getThrowable().getMessage());
+		
+		Object testclass=result.getInstance();
+		BrowserUtility browserutility=((TestBase)testclass).getInstance();
+		
+		logger.info("Capturing sceenshot");
+		String screenshotpath=browserutility.takeScreenShot(result.getMethod().getMethodName());
+		logger.info("Attach screenshot to report file");
+		ExtentReporterUtility.getTest().addScreenCaptureFromPath(screenshotpath);
 	  }
 	
 	public void onTestSkipped(ITestResult result) {

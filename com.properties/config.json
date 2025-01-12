@@ -1,0 +1,10 @@
+{
+    "environments":
+    {
+        "DEV":
+        {
+            "url": "http://www.automationpractice.pl/index.php",
+            "MAX_NUMBER_OF_ATTEMPT":3
+        }
+    }
+}
